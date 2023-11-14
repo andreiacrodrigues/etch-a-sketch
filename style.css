@@ -1,0 +1,19 @@
+body{
+    height: 96vh;
+    background-color: darkslategray;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+h1{
+   text-align: center;
+   color: rgb(199, 216, 170);
+}
+
+div#container{
+    border: 1px solid black;
+    height: 430px;
+    width: 430px;
+    background-color:rgb(199, 216, 170);
+}
