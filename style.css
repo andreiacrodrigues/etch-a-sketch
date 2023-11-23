@@ -10,10 +10,73 @@ h1{
    text-align: center;
    color: rgb(199, 216, 170);
 }
+div#container-all{
+    display: flex;
+    flex-direction: column;
+}
 
 div#container{
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
-    height: 430px;
-    width: 430px;
-    background-color:rgb(199, 216, 170);
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    /*background-color:rgb(199, 216, 170);*/
+}
+
+div#container-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+div#container-colors{
+    display: flex;
+    flex-direction: row;
+}
+
+div#container-colors>button{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+button#colorRed{
+    background-color: red;
+}
+
+button#colorGreen{
+    background-color: green;
+}
+
+button#colorYellow{
+    background-color: yellow;
+}
+
+button#colorBlue{
+    background-color: blue;
+}
+
+button#colorPink{
+    background-color: pink;
+}
+
+button#colorBlack{
+    background-color: black;
+}
+
+button{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    width: 80px;
+    height: 20px;
+    margin: 10px;
 }
