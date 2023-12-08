@@ -5,26 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../etch-a-sketch/grid.png" type="image/x-icon">
     <title>Etch-a-Sketch</title>
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
+    
     <div id="container-all">
+
         <div id="container"></div>
+
         <div id = "container-buttons">
+
             <button id="pixel">Pixel</button>
+            <button id="erase">Erase</button>
             <button id="clear">Clear</button>
-            <div id ="container-colors">
-                <button id="colorRed"></button>
-                <button id="colorGreen"></button>
-                <button id="colorYellow"></button>
-                <button id="colorBlue"></button>
-                <button id="colorPink"></button>
-                <button id="colorBlack"></button>
-            </div>
+            <button id="darker">Opacity</button>
+            <button id="rainbow">Rainbow</button>
+            <input id="colorPicker" type="color" value="#333333" />
+
         </div>
     </div>
 
+    <footer>
+        <p>Made by: <a href="https://github.com/andreiacrodrigues"> Andreia Rodrigues </a> for <a href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch">Odin Project</a></p>
+    </footer>
 
     <script src="etch-a-sketch.js"></script>
 </body>

@@ -4,11 +4,14 @@ container.style.flexDirection = 'column'
 
 let containerButtons = document.querySelector('#container-buttons')
 let pixelButton = document.querySelector('#pixel')
+let eraseButton = document.querySelector('#erase')
 let clearButton = document.querySelector('#clear')
-let containerColors = document.querySelector('#container-colors')
+let darkerButton = document.querySelector('#darker')
+let rainbowButton = document.querySelector('#rainbow')
+let colorRGB = document.getElementById('colorPicker')
 
 let answer = 16
-let selectedColor
+let cells = []
 
 function createRow(answer){
     let row = document.createElement('div')
@@ -17,7 +20,7 @@ function createRow(answer){
     container.appendChild(row)
 
     for(let i=0; i<answer; i++){
-        cell = document.createElement('div')
+        let cell = document.createElement('div')
         row.appendChild(cell)
         let cellSize = 400/ answer
         cell.style.width = `${cellSize}px`
@@ -26,8 +29,10 @@ function createRow(answer){
         cell.style.border = '1px solid white' 
         
         cell.addEventListener('mouseover', (event) => {
-            event.target.style.backgroundColor = randomRGB()
+            event.target.style.backgroundColor = 'grey'
         })
+
+        cells.push(cell) // add cell to array cells
     }
 }
 
@@ -42,13 +47,6 @@ function createGrid(answer){
 
 createGrid(answer)
 
-function randomRGB(){
-    let red = Math.floor(Math.random()* 256)
-    let green = Math.floor(Math.random()* 256)
-    let blue = Math.floor(Math.random()* 256)
-   return "rgb("+ red + ',' + green + ',' + blue + ")"
-}
-
 pixelButton.addEventListener('click', () => {
     answer = Number(prompt('Pixel (1-64):'))
     if(answer >= 1 && answer <= 64) {
@@ -58,9 +56,7 @@ pixelButton.addEventListener('click', () => {
     }
 })
 
-clearButton.addEventListener('click', () => {
-    let cells = container.querySelectorAll('div')
-
+eraseButton.addEventListener('click', () => {
     cells.forEach((cell) => {
         cell.addEventListener('mouseover', () => {
             cell.style.backgroundColor = 'white'
@@ -68,14 +64,44 @@ clearButton.addEventListener('click', () => {
     })
 })
 
-/* FALTA CONSEGUIR GUARDAR A COR QUE SELECIONEI NO BOTAO E FAZER A ULTIMA EXTRA TRASK
+clearButton.addEventListener('click', () => {
+    cells.forEach((cell) => {
+        cell.style.backgroundColor = 'white'
+    })
+})
 
+darkerButton.addEventListener('click', () => {
+    cells.forEach((cell) => {
+        cell.style.transition = 'opacity 0.5s ease'
 
-/*
-let colorRed = document.querySelector('#colorRed')
-let colorGreen = document.querySelector('#colorGreen')
-let colorYellow = document.querySelector('#colorYellow')
-let colorBlue = document.querySelector('#colorBlue')
-let colorPink = document.querySelector('#colorPink')
-let colorBlack = document.querySelector('#colorBlack')
-*/
+        cell.addEventListener('mouseenter', () => {
+            let currentOpacity = parseFloat(cell.style.opacity) || 0
+            cell.style.opacity = Math.min(currentOpacity + 0.3, 1).toString()
+        })
+    })
+})
+
+function randomRGB(){
+    let red = Math.floor(Math.random()* 256)
+    let green = Math.floor(Math.random()* 256)
+    let blue = Math.floor(Math.random()* 256)
+    return "rgb("+ red + ',' + green + ',' + blue + ")"
+}
+
+rainbowButton.addEventListener('click', () =>{
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = randomRGB()
+        })
+    })
+})
+
+colorRGB.addEventListener('input', () => {
+    let colorSelected = colorRGB.value
+
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = colorSelected
+        })
+    })
+})

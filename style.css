@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,300&family=VT323&display=swap');
+
 body{
     height: 96vh;
-    background-color: darkslategray;
+    background-color: rgb(129, 25, 20);
     display: flex;
     flex-direction:column;
     align-items: center;
+    font-family: 'VT323', monospace;
 }
 
 h1{
    text-align: center;
    color: rgb(199, 216, 170);
+   font-size: 75px;
+   margin-bottom: 20px;
+   text-shadow: 5px 5px black;
 }
 div#container-all{
     display: flex;
@@ -22,7 +28,6 @@ div#container{
     height: 400px;
     width: 400px;
     background-color: white;
-    /*background-color:rgb(199, 216, 170);*/
 }
 
 div#container-buttons{
@@ -31,13 +36,14 @@ div#container-buttons{
     justify-content: center;
     align-items: center;
     width: 400px;
-    height: 200px;
+    height: 250px;
     margin-top: 10px;
 }
 
-div#container-colors{
-    display: flex;
-    flex-direction: row;
+input#colorPicker{
+    width: 80px;
+    height: 25px;
+    background-color: rgb(199, 216, 170);
 }
 
 div#container-colors>button{
@@ -47,36 +53,42 @@ div#container-colors>button{
     border: 1px solid white;
 }
 
-button#colorRed{
-    background-color: red;
-}
-
-button#colorGreen{
-    background-color: green;
-}
-
-button#colorYellow{
-    background-color: yellow;
-}
-
-button#colorBlue{
-    background-color: blue;
-}
-
-button#colorPink{
-    background-color: pink;
-}
-
-button#colorBlack{
-    background-color: black;
-}
-
 button{
+    font-family: 'VT323', monospace;
+    background-color: rgb(199, 216, 170);
+    font-size: 20px;
     display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: center;
     width: 80px;
-    height: 20px;
+    height: 25px;
     margin: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:visited{
+    color:white;
+    text-decoration: none;
+}
+
+p{
+    padding: 0px;
+    margin: 0px;
+}
+
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 6px;
 }
